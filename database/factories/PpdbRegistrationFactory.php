@@ -15,23 +15,20 @@ class PpdbRegistrationFactory extends Factory
     {
         return [
             'school_id' => School::factory(),
-            'period_id' => PpdbPeriod::factory(),
+            'ppdb_period_id' => PpdbPeriod::factory(),
             'registration_number' => 'PPDB-' . date('Y') . '-' . str_pad($this->faker->unique()->numberBetween(1, 9999), 4, '0', STR_PAD_LEFT),
             'student_name' => $this->faker->name(),
             'nisn' => $this->faker->numerify('##########'),
-            'nik' => $this->faker->numerify('################'),
             'birth_place' => $this->faker->city(),
             'birth_date' => $this->faker->date('Y-m-d', '-8 years'),
             'gender' => $this->faker->randomElement(['L', 'P']),
             'religion' => $this->faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha']),
             'address' => $this->faker->address(),
             'previous_school' => $this->faker->company() . ' School',
-            'father_name' => $this->faker->name('male'),
-            'father_job' => $this->faker->jobTitle(),
-            'mother_name' => $this->faker->name('female'),
-            'mother_job' => $this->faker->jobTitle(),
+            'parent_name' => $this->faker->name('male') . ' / ' . $this->faker->name('female'),
             'parent_phone' => $this->faker->phoneNumber(),
             'parent_email' => $this->faker->safeEmail(),
+            'parent_occupation' => $this->faker->jobTitle(),
             'status' => 'pending',
         ];
     }
@@ -50,3 +47,4 @@ class PpdbRegistrationFactory extends Factory
         ]);
     }
 }
+

@@ -58,7 +58,7 @@ class PpdbRegistrationTest extends TestCase
         $this->assertDatabaseHas('ppdb_registrations', [
             'student_name' => 'Ahmad Fauzi',
             'school_id' => $this->school->id,
-            'period_id' => $this->period->id,
+            'ppdb_period_id' => $this->period->id,
         ]);
 
         $response->assertSessionHas('success');
@@ -68,7 +68,7 @@ class PpdbRegistrationTest extends TestCase
     {
         $registration = PpdbRegistration::factory()->create([
             'school_id' => $this->school->id,
-            'period_id' => $this->period->id,
+            'ppdb_period_id' => $this->period->id,
             'registration_number' => 'PPDB-2024-0001',
         ]);
 

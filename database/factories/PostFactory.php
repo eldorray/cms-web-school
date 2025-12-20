@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Post;
 use App\Models\School;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,6 +19,7 @@ class PostFactory extends Factory
         
         return [
             'school_id' => School::factory(),
+            'user_id' => User::factory(),
             'category_id' => null,
             'title' => $title,
             'slug' => Str::slug($title),

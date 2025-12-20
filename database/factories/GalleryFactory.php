@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Gallery;
 use App\Models\School;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -17,6 +18,7 @@ class GalleryFactory extends Factory
         
         return [
             'school_id' => School::factory(),
+            'user_id' => User::factory(),
             'title' => $title,
             'slug' => Str::slug($title),
             'description' => $this->faker->paragraph(),
@@ -25,3 +27,4 @@ class GalleryFactory extends Factory
         ];
     }
 }
+

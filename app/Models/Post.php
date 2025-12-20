@@ -44,6 +44,7 @@ class Post extends Model implements HasMedia
         'content',
         'featured_image',
         'is_published',
+        'is_featured',
         'is_pinned',
         'published_at',
         'view_count',
@@ -51,6 +52,7 @@ class Post extends Model implements HasMedia
 
     protected $casts = [
         'is_published' => 'boolean',
+        'is_featured' => 'boolean',
         'is_pinned' => 'boolean',
         'published_at' => 'datetime',
         'view_count' => 'integer',
