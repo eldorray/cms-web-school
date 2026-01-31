@@ -60,8 +60,8 @@ class IdentifyTenant
             return $school;
         }
 
-        // For local development, try to get from session or query param
-        if (app()->environment('local')) {
+        // For local development or testing, try to get from session or query param
+        if (app()->environment('local', 'testing')) {
             // Check for school_slug in query param (dev only)
             if ($request->has('school')) {
                 $school = School::where('slug', $request->get('school'))->first();

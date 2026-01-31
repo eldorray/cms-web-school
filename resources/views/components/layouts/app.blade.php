@@ -34,12 +34,84 @@
         window.setAppearance(window.localStorage.getItem('appearance') || 'system')
     </script>
 
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Quill.js Rich Text Editor - 100% Free, No API Key Required --}}
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <style>
+        :root {
+            --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        body {
+            font-family: var(--font-sans);
+        }
+
+        .ql-editor {
+            min-height: 300px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+        }
+
+        .ql-container {
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+
+        .ql-toolbar {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            background: #f9fafb;
+        }
+
+        .dark .ql-toolbar {
+            background: #374151;
+            border-color: #4b5563;
+        }
+
+        .dark .ql-container {
+            border-color: #4b5563;
+            background: #1f2937;
+        }
+
+        .dark .ql-editor {
+            color: #f3f4f6;
+        }
+
+        .dark .ql-toolbar .ql-stroke {
+            stroke: #9ca3af;
+        }
+
+        .dark .ql-toolbar .ql-fill {
+            fill: #9ca3af;
+        }
+
+        .dark .ql-toolbar .ql-picker {
+            color: #9ca3af;
+        }
+
+        .dark .ql-toolbar button:hover .ql-stroke {
+            stroke: #fff;
+        }
+
+        .dark .ql-toolbar button:hover .ql-fill {
+            fill: #fff;
+        }
+
+        .dark .ql-toolbar .ql-picker-label:hover {
+            color: #fff;
+        }
+    </style>
+    @stack('scripts')
 </head>
 
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 antialiased" x-data="{
     sidebarOpen: localStorage.getItem('sidebarOpen') === null ? window.innerWidth >= 1024 : localStorage.getItem('sidebarOpen') === 'true',
-    toggleSidebar() { 
+    toggleSidebar() {
         this.sidebarOpen = !this.sidebarOpen;
         localStorage.setItem('sidebarOpen', this.sidebarOpen);
     },

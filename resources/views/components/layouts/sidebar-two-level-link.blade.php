@@ -1,9 +1,9 @@
 @props(['active' => false, 'href' => '#', 'icon' => 'fas-house'])
 
 <a href="{{ $href }}" @class([
-    'flex items-center px-3 py-2 text-sm rounded-md transition-colors duration-200',
-    'bg-sidebar-accent text-sidebar-accent-foreground font-medium' => $active,
-    'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sidebar-foreground' => !$active,
+    'flex items-center px-3 py-2 text-sm rounded-lg transition-all duration-200',
+    'bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 font-semibold' => $active,
+    'hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 text-gray-600 dark:text-gray-400' => !$active,
 ])
 :class="{ 'justify-center': !sidebarOpen, 'justify-start': sidebarOpen }">
     @svg($icon, $active ? 'w-5 h-5 text-white dark:text-gray-800' : 'w-5 h-5 text-gray-500')

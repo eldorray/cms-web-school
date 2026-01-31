@@ -37,6 +37,7 @@ class SchoolController extends Controller
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:500',
             'tagline' => 'nullable|string|max:255',
+            'school_level' => 'nullable|in:SD,MI,SMP,MTs',
             'admin_name' => 'required|string|max:255',
             'admin_email' => 'required|email|max:255|unique:users,email',
             'admin_password' => 'required|string|min:8',
@@ -50,7 +51,7 @@ class SchoolController extends Controller
             'email' => $validated['email'],
             'phone' => $validated['phone'] ?? null,
             'address' => $validated['address'] ?? null,
-            'tagline' => $validated['tagline'] ?? null,
+            'school_level' => $validated['school_level'] ?? 'SD',
             'is_active' => true,
         ]);
         

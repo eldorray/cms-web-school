@@ -18,9 +18,10 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::middleware('web')
                 ->group(base_path('routes/admin.php'));
             Route::middleware('web')
-                ->group(base_path('routes/frontend.php'));
-            Route::middleware('web')
                 ->group(base_path('routes/super-admin.php'));
+            // Frontend routes loaded last (has catch-all route)
+            Route::middleware('web')
+                ->group(base_path('routes/frontend.php'));
         },
     )
     ->withMiddleware(function (Middleware $middleware) {

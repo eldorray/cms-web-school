@@ -38,6 +38,14 @@ class LoginController extends Controller
 
         RateLimiter::clear($this->throttleKey($request));
 
+        // Check if user is active
+        if (Auth::user()->is_active === false) {
+            Auth::logout();
+            throw ValidationException::withMessages([
+                'email' => 'Akun Anda tidak aktif. Silakan hubungi administrator.',
+            ]);
+        }
+
         $request->session()->regenerate();
 
         return redirect()->intended(route('dashboard', absolute: false));

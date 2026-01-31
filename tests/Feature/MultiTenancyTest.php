@@ -31,7 +31,8 @@ class MultiTenancyTest extends TestCase
             'is_active' => false,
         ]);
 
-        $response = $this->withServerVariables(['HTTP_HOST' => 'inactive.localhost'])
+        // Use session to identify the inactive school
+        $response = $this->withSession(['school_id' => $school->id])
             ->get('/');
 
         $response->assertStatus(403);
@@ -70,8 +71,9 @@ class MultiTenancyTest extends TestCase
     {
         $school = School::factory()->create(['is_active' => true]);
 
-        // In local env without domain match, should use first school
-        $response = $this->get('/');
+        // In testing env, use session to identify school
+        $response = $this->withSession(['school_id' => $school->id])
+            ->get('/');
 
         $response->assertStatus(200);
     }

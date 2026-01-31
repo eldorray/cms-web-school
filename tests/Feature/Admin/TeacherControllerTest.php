@@ -50,9 +50,8 @@ class TeacherControllerTest extends TestCase
             ->post(route('admin.teachers.store'), [
                 'name' => 'Budi Santoso, S.Pd',
                 'nip' => '198501012010011001',
-                'position' => 'teacher',
+                'position' => 'guru',
                 'subject' => 'Matematika',
-                'is_active' => true,
             ]);
 
         $this->assertDatabaseHas('teachers', [
@@ -69,14 +68,13 @@ class TeacherControllerTest extends TestCase
             ->withSession(['school_id' => $this->school->id])
             ->put(route('admin.teachers.update', $teacher), [
                 'name' => 'Updated Name',
-                'position' => 'principal',
-                'is_active' => true,
+                'position' => 'kepala_sekolah',
             ]);
 
         $this->assertDatabaseHas('teachers', [
             'id' => $teacher->id,
             'name' => 'Updated Name',
-            'position' => 'principal',
+            'position' => 'kepala_sekolah',
         ]);
     }
 

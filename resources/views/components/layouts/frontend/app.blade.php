@@ -53,6 +53,10 @@
     </style>
 </head>
 
+@php
+    $menuPages = \App\Models\Page::where('school_id', $school->id)->published()->inMenu()->ordered()->get();
+@endphp
+
 <body class="font-sans antialiased bg-gray-50 text-gray-900">
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white shadow-sm">
@@ -85,7 +89,7 @@
         </div>
 
         <!-- Main Nav -->
-        <nav class="container mx-auto px-4" x-data="{ open: false }">
+        <nav class="container mx-auto px-4" x-data="{ open: false, profileOpen: false }">
             <div class="flex items-center justify-between h-16">
                 <a href="{{ route('home') }}" class="flex items-center gap-3">
                     @if ($school->getFirstMediaUrl('logo'))
@@ -103,8 +107,40 @@
                 <div class="hidden lg:flex items-center gap-6">
                     <a href="{{ route('home') }}"
                         class="text-sm font-medium text-gray-700 hover:text-primary {{ request()->routeIs('home') ? 'text-primary' : '' }}">Beranda</a>
+
+                    {{-- Profil Dropdown --}}
+                    @if ($menuPages->count() > 0)
+                        <div class="relative" x-data="{ dropdownOpen: false }" @mouseenter="dropdownOpen = true"
+                            @mouseleave="dropdownOpen = false">
+                            <button
+                                class="text-sm font-medium text-gray-700 hover:text-primary flex items-center gap-1 {{ request()->routeIs('pages.*') ? 'text-primary' : '' }}">
+                                Profil
+                                <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': dropdownOpen }"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div x-show="dropdownOpen" x-transition:enter="transition ease-out duration-100"
+                                x-transition:enter-start="opacity-0 scale-95"
+                                x-transition:enter-end="opacity-100 scale-100"
+                                x-transition:leave="transition ease-in duration-75"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95"
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+                                @foreach ($menuPages as $page)
+                                    <a href="{{ route('pages.show', $page) }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary">
+                                        {{ $page->title }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
                     <a href="{{ route('posts.index') }}"
                         class="text-sm font-medium text-gray-700 hover:text-primary {{ request()->routeIs('posts.*') ? 'text-primary' : '' }}">Berita</a>
+
                     <a href="{{ route('events.index') }}"
                         class="text-sm font-medium text-gray-700 hover:text-primary {{ request()->routeIs('events.*') ? 'text-primary' : '' }}">Agenda</a>
                     <a href="{{ route('teachers.index') }}"
@@ -135,13 +171,36 @@
             <!-- Mobile Nav -->
             <div x-show="open" x-collapse class="lg:hidden pb-4">
                 <a href="{{ route('home') }}" class="block py-2 text-gray-700 hover:text-primary">Beranda</a>
+
+                {{-- Mobile Profil Submenu --}}
+                @if ($menuPages->count() > 0)
+                    <div x-data="{ submenuOpen: false }">
+                        <button @click="submenuOpen = !submenuOpen"
+                            class="flex items-center justify-between w-full py-2 text-gray-700 hover:text-primary">
+                            <span>Profil</span>
+                            <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': submenuOpen }"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div x-show="submenuOpen" x-collapse class="pl-4 border-l-2 border-gray-200 ml-2">
+                            @foreach ($menuPages as $page)
+                                <a href="{{ route('pages.show', $page) }}"
+                                    class="block py-2 text-gray-600 hover:text-primary">{{ $page->title }}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
                 <a href="{{ route('posts.index') }}" class="block py-2 text-gray-700 hover:text-primary">Berita</a>
                 <a href="{{ route('events.index') }}" class="block py-2 text-gray-700 hover:text-primary">Agenda</a>
                 <a href="{{ route('teachers.index') }}" class="block py-2 text-gray-700 hover:text-primary">Guru &
                     Staff</a>
                 <a href="{{ route('achievements.index') }}"
                     class="block py-2 text-gray-700 hover:text-primary">Prestasi</a>
-                <a href="{{ route('galleries.index') }}" class="block py-2 text-gray-700 hover:text-primary">Galeri</a>
+                <a href="{{ route('galleries.index') }}"
+                    class="block py-2 text-gray-700 hover:text-primary">Galeri</a>
                 <a href="{{ route('downloads.index') }}"
                     class="block py-2 text-gray-700 hover:text-primary">Download</a>
                 <a href="{{ route('ppdb.index') }}" class="block py-2 text-gray-700 hover:text-primary">PPDB</a>

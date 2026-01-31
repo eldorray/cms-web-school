@@ -48,8 +48,8 @@
                         class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
                         <label for="content"
                             class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Isi Berita</label>
-                        <textarea name="content" id="content" rows="15"
-                            class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">{{ old('content', $post->content) }}</textarea>
+                        <input type="hidden" name="content" id="content">
+                        <div id="editor-container">{!! old('content', $post->content) !!}</div>
                         @error('content')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                         @enderror
@@ -149,4 +149,46 @@
             </div>
         </form>
     </div>
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var quill = new Quill('#editor-container', {
+                    theme: 'snow',
+                    placeholder: 'Tulis isi berita di sini...',
+                    modules: {
+                        toolbar: [
+                            [{
+                                'header': [1, 2, 3, 4, 5, 6, false]
+                            }],
+                            ['bold', 'italic', 'underline', 'strike'],
+                            [{
+                                'color': []
+                            }, {
+                                'background': []
+                            }],
+                            [{
+                                'list': 'ordered'
+                            }, {
+                                'list': 'bullet'
+                            }],
+                            [{
+                                'align': []
+                            }],
+                            ['link', 'image', 'video'],
+                            ['blockquote', 'code-block'],
+                            ['clean']
+                        ]
+                    }
+                });
+
+                // Sync content to hidden input on form submit
+                var form = document.querySelector('form');
+                form.addEventListener('submit', function() {
+                    var contentInput = document.querySelector('#content');
+                    contentInput.value = quill.root.innerHTML;
+                });
+            });
+        </script>
+    @endpush
 </x-layouts.app>

@@ -9,80 +9,79 @@
         <!-- Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Published Posts -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                        @svg('fas-newspaper', 'w-6 h-6 text-blue-600 dark:text-blue-400')
-                    </div>
-                    <div class="ml-4">
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Berita Terpublikasi</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ $stats['published_posts'] }}</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{ $stats['published_posts'] }}</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        @svg('fas-newspaper', 'w-6 h-6 text-blue-600 dark:text-blue-400')
                     </div>
                 </div>
             </div>
 
             <!-- Upcoming Events -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-green-100 dark:bg-green-900 rounded-lg">
-                        @svg('fas-calendar-days', 'w-6 h-6 text-green-600 dark:text-green-400')
-                    </div>
-                    <div class="ml-4">
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Agenda Mendatang</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ $stats['events'] }}</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{ $stats['events'] }}</p>
+                    </div>
+                    <div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        @svg('fas-calendar-days', 'w-6 h-6 text-green-600 dark:text-green-400')
                     </div>
                 </div>
             </div>
 
             <!-- Active Teachers -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-purple-100 dark:bg-purple-900 rounded-lg">
-                        @svg('fas-chalkboard-user', 'w-6 h-6 text-purple-600 dark:text-purple-400')
-                    </div>
-                    <div class="ml-4">
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Guru & Staff Aktif</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ $stats['teachers'] }}</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{ $stats['teachers'] }}</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 dark:bg-purple-900/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        @svg('fas-chalkboard-user', 'w-6 h-6 text-purple-600 dark:text-purple-400')
                     </div>
                 </div>
             </div>
 
             <!-- Unread Messages -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-yellow-100 dark:bg-yellow-900 rounded-lg">
-                        @svg('fas-envelope', 'w-6 h-6 text-yellow-600 dark:text-yellow-400')
-                    </div>
-                    <div class="ml-4">
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Pesan Belum Dibaca</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ $stats['unread_messages'] }}</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{ $stats['unread_messages'] }}</p>
+                    </div>
+                    <div class="p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        @svg('fas-envelope', 'w-6 h-6 text-yellow-600 dark:text-yellow-400')
                     </div>
                 </div>
             </div>
 
             <!-- Pending Registrations -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-red-100 dark:bg-red-900 rounded-lg">
-                        @svg('fas-user-plus', 'w-6 h-6 text-red-600 dark:text-red-400')
-                    </div>
-                    <div class="ml-4">
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Pendaftaran Pending</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">
-                            {{ $stats['pending_registrations'] }}</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{ $stats['pending_registrations'] }}</p>
+                    </div>
+                    <div class="p-4 bg-red-50 dark:bg-red-900/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        @svg('fas-user-plus', 'w-6 h-6 text-red-600 dark:text-red-400')
                     </div>
                 </div>
             </div>
 
             <!-- Total Posts -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                        @svg('fas-file-lines', 'w-6 h-6 text-indigo-600 dark:text-indigo-400')
-                    </div>
-                    <div class="ml-4">
+            <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Berita</p>
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">{{ $stats['posts'] }}</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2">{{ $stats['posts'] }}</p>
+                    </div>
+                    <div class="p-4 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        @svg('fas-file-lines', 'w-6 h-6 text-indigo-600 dark:text-indigo-400')
                     </div>
                 </div>
             </div>
@@ -91,80 +90,89 @@
         <!-- Two Column Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Recent Posts -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Berita Terbaru</h3>
-                        <a href="{{ route('admin.posts.index') }}"
-                            class="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">Lihat Semua</a>
-                    </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Berita Terbaru</h3>
+                    <a href="{{ route('admin.posts.index') }}"
+                        class="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 transition-colors">Lihat Semua</a>
                 </div>
                 <div class="divide-y divide-gray-100 dark:divide-gray-700">
                     @forelse($recentPosts as $post)
-                        <div class="px-6 py-4">
+                        <div class="group px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                             <div class="flex items-start justify-between">
-                                <div class="flex-1 min-w-0">
+                                <div class="flex-1 min-w-0 pr-4">
                                     <a href="{{ route('admin.posts.edit', $post) }}"
-                                        class="text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 truncate block">
+                                        class="text-sm font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate block">
                                         {{ $post->title }}
                                     </a>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                        {{ $post->author->name }} • {{ $post->created_at->format('d M Y') }}
-                                    </p>
+                                    <div class="flex items-center mt-1 text-xs text-gray-500 dark:text-gray-400 space-x-2">
+                                        <span>{{ $post->author->name }}</span>
+                                        <span>•</span>
+                                        <span>{{ $post->created_at->format('d M Y') }}</span>
+                                    </div>
                                 </div>
                                 @if ($post->is_published)
                                     <span
-                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Publik</span>
+                                        class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300 border border-green-200 dark:border-green-800">
+                                        Publik
+                                    </span>
                                 @else
                                     <span
-                                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Draft</span>
+                                        class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800">
+                                        Draft
+                                    </span>
                                 @endif
                             </div>
                         </div>
                     @empty
-                        <div class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                            Belum ada berita
+                        <div class="px-6 py-8 text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 mb-3">
+                                @svg('fas-newspaper', 'w-5 h-5 text-gray-400 dark:text-gray-500')
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Belum ada berita</p>
                         </div>
                     @endforelse
                 </div>
             </div>
 
             <!-- Upcoming Events -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Agenda Mendatang</h3>
-                        <a href="{{ route('admin.events.index') }}"
-                            class="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">Lihat Semua</a>
-                    </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Agenda Mendatang</h3>
+                    <a href="{{ route('admin.events.index') }}"
+                        class="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 transition-colors">Lihat Semua</a>
                 </div>
                 <div class="divide-y divide-gray-100 dark:divide-gray-700">
                     @forelse($upcomingEvents as $event)
-                        <div class="px-6 py-4">
+                        <div class="group px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                             <div class="flex items-start">
                                 <div
-                                    class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex flex-col items-center justify-center">
+                                    class="flex-shrink-0 w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex flex-col items-center justify-center border border-blue-100 dark:border-blue-800 group-hover:scale-105 transition-transform">
                                     <span
-                                        class="text-xs font-medium text-blue-600 dark:text-blue-400">{{ $event->start_date->format('M') }}</span>
+                                        class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">{{ $event->start_date->format('M') }}</span>
                                     <span
-                                        class="text-lg font-bold text-blue-600 dark:text-blue-400">{{ $event->start_date->format('d') }}</span>
+                                        class="text-lg font-bold text-gray-900 dark:text-white">{{ $event->start_date->format('d') }}</span>
                                 </div>
-                                <div class="ml-4 flex-1">
+                                <div class="ml-4 flex-1 min-w-0">
                                     <a href="{{ route('admin.events.edit', $event) }}"
-                                        class="text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600">
+                                        class="text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block truncate">
                                         {{ $event->title }}
                                     </a>
                                     @if ($event->location)
-                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                            @svg('fas-location-dot', 'w-3 h-3 inline') {{ $event->location }}
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 flex items-center">
+                                            @svg('fas-location-dot', 'w-3 h-3 mr-1.5 text-gray-400')
+                                            {{ $event->location }}
                                         </p>
                                     @endif
                                 </div>
                             </div>
                         </div>
                     @empty
-                        <div class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                            Tidak ada agenda mendatang
+                        <div class="px-6 py-8 text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 mb-3">
+                                @svg('fas-calendar-days', 'w-5 h-5 text-gray-400 dark:text-gray-500')
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Tidak ada agenda mendatang</p>
                         </div>
                     @endforelse
                 </div>
@@ -174,71 +182,91 @@
         <!-- Recent Messages & Registrations -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Recent Messages -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pesan Terbaru</h3>
-                        <a href="{{ route('admin.contacts.index') }}"
-                            class="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">Lihat Semua</a>
-                    </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pesan Terbaru</h3>
+                    <a href="{{ route('admin.contacts.index') }}"
+                        class="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 transition-colors">Lihat Semua</a>
                 </div>
                 <div class="divide-y divide-gray-100 dark:divide-gray-700">
                     @forelse($recentMessages as $message)
                         <a href="{{ route('admin.contacts.show', $message) }}"
-                            class="block px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                            class="block px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                             <div class="flex items-start">
+                                <div class="flex-shrink-0 mr-4">
+                                     <div class="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+                                        {{ substr($message->name, 0, 2) }}
+                                     </div>
+                                </div>
                                 <div class="flex-1 min-w-0">
-                                    <p
-                                        class="text-sm font-medium text-gray-900 dark:text-white {{ !$message->is_read ? 'font-bold' : '' }}">
-                                        {{ $message->name }}
-                                    </p>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <p
+                                            class="text-sm font-medium text-gray-900 dark:text-white {{ !$message->is_read ? 'font-bold' : '' }}">
+                                            {{ $message->name }}
+                                        </p>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap ml-2">
+                                            {{ $message->created_at->diffForHumans() }}
+                                        </span>
+                                    </div>
                                     <p class="text-sm text-gray-600 dark:text-gray-300 truncate">
-                                        {{ $message->subject }}</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                        {{ $message->created_at->diffForHumans() }}</p>
+                                        {{ $message->subject }}
+                                    </p>
                                 </div>
                                 @if (!$message->is_read)
-                                    <span class="w-2.5 h-2.5 bg-blue-500 rounded-full"></span>
+                                    <div class="ml-4 flex-shrink-0 self-center">
+                                        <span class="w-2.5 h-2.5 bg-blue-500 rounded-full block ring-2 ring-white dark:ring-gray-800"></span>
+                                    </div>
                                 @endif
                             </div>
                         </a>
                     @empty
-                        <div class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                            Tidak ada pesan
+                         <div class="px-6 py-8 text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 mb-3">
+                                @svg('fas-envelope', 'w-5 h-5 text-gray-400 dark:text-gray-500')
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Tidak ada pesan</p>
                         </div>
                     @endforelse
                 </div>
             </div>
 
             <!-- Recent Registrations -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pendaftaran Terbaru</h3>
-                        <a href="{{ route('admin.ppdb-registrations.index') }}"
-                            class="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">Lihat Semua</a>
-                    </div>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pendaftaran Terbaru</h3>
+                    <a href="{{ route('admin.ppdb-registrations.index') }}"
+                        class="text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 transition-colors">Lihat Semua</a>
                 </div>
                 <div class="divide-y divide-gray-100 dark:divide-gray-700">
                     @forelse($recentRegistrations as $registration)
                         <a href="{{ route('admin.ppdb-registrations.show', $registration) }}"
-                            class="block px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                            class="block px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                             <div class="flex items-center justify-between">
-                                <div class="flex-1 min-w-0">
-                                    <p class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $registration->student_name }}</p>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400">
-                                        {{ $registration->registration_number }}</p>
+                                <div class="flex items-center min-w-0">
+                                     <div class="flex-shrink-0 mr-4">
+                                         <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                            @svg('fas-user', 'w-4 h-4')
+                                         </div>
+                                     </div>
+                                    <div class="min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">
+                                            {{ $registration->student_name }}</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                            {{ $registration->registration_number }}</p>
+                                    </div>
                                 </div>
                                 <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-{{ $registration->status_color }}-100 text-{{ $registration->status_color }}-800 dark:bg-{{ $registration->status_color }}-900 dark:text-{{ $registration->status_color }}-300">
+                                    class="ml-4 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-{{ $registration->status_color }}-100 text-{{ $registration->status_color }}-700 dark:bg-{{ $registration->status_color }}-900/50 dark:text-{{ $registration->status_color }}-300 border border-{{ $registration->status_color }}-200 dark:border-{{ $registration->status_color }}-800">
                                     {{ $registration->status_label }}
                                 </span>
                             </div>
                         </a>
                     @empty
-                        <div class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                            Tidak ada pendaftaran
+                         <div class="px-6 py-8 text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 mb-3">
+                                @svg('fas-user-plus', 'w-5 h-5 text-gray-400 dark:text-gray-500')
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Tidak ada pendaftaran</p>
                         </div>
                     @endforelse
                 </div>

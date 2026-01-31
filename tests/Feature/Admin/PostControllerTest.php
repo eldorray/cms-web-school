@@ -101,6 +101,6 @@ class PostControllerTest extends TestCase
             ->withSession(['school_id' => $this->school->id])
             ->get(route('admin.posts.edit', $otherPost));
 
-        $response->assertStatus(404);
+        $response->assertStatus(403);
     }
 }

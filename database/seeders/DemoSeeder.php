@@ -202,9 +202,9 @@ class DemoSeeder extends Seeder
         
         // Create pages
         $pages = [
-            ['title' => 'Visi & Misi', 'slug' => 'visi-misi', 'content' => '<h2>Visi</h2><p>Menjadi sekolah unggulan yang menghasilkan lulusan cerdas, berkarakter, dan berakhlak mulia.</p><h2>Misi</h2><ul><li>Menyelenggarakan pembelajaran yang berkualitas</li><li>Mengembangkan potensi siswa secara optimal</li><li>Menanamkan nilai-nilai karakter dan akhlak mulia</li></ul>'],
-            ['title' => 'Sejarah Sekolah', 'slug' => 'sejarah', 'content' => '<p>SDN 1 Demo didirikan pada tahun 1980 dengan awal mula hanya memiliki 3 ruang kelas...</p>'],
-            ['title' => 'Fasilitas', 'slug' => 'fasilitas', 'content' => '<p>Fasilitas yang tersedia di SDN 1 Demo:</p><ul><li>Ruang Kelas ber-AC</li><li>Perpustakaan</li><li>Lab Komputer</li><li>Lapangan Olahraga</li><li>Musholla</li></ul>'],
+            ['title' => 'Visi & Misi', 'slug' => 'visi-misi', 'order' => 1, 'content' => '<h2>Visi</h2><p>Menjadi sekolah unggulan yang menghasilkan lulusan cerdas, berkarakter, dan berakhlak mulia.</p><h2>Misi</h2><ul><li>Menyelenggarakan pembelajaran yang berkualitas</li><li>Mengembangkan potensi siswa secara optimal</li><li>Menanamkan nilai-nilai karakter dan akhlak mulia</li></ul>'],
+            ['title' => 'Sejarah Sekolah', 'slug' => 'sejarah', 'order' => 2, 'content' => '<p>SDN 1 Demo didirikan pada tahun 1980 dengan awal mula hanya memiliki 3 ruang kelas...</p>'],
+            ['title' => 'Fasilitas', 'slug' => 'fasilitas', 'order' => 3, 'content' => '<p>Fasilitas yang tersedia di SDN 1 Demo:</p><ul><li>Ruang Kelas ber-AC</li><li>Perpustakaan</li><li>Lab Komputer</li><li>Lapangan Olahraga</li><li>Musholla</li></ul>'],
         ];
         
         foreach ($pages as $page) {
@@ -214,6 +214,7 @@ class DemoSeeder extends Seeder
                     'school_id' => $school->id,
                     'user_id' => $schoolAdmin->id,
                     'is_published' => true,
+                    'show_in_menu' => true,
                 ])
             );
         }
